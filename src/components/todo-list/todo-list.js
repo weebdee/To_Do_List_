@@ -3,15 +3,15 @@ import TodoListItem from '../todo-list-item';
 import './todo-list.css';
 
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, onDelete, onImportant}) => {
 
   // Array generation
   const content = todos.map((todo) => {
     // todo -> id, label, important, done
 
     return (
-      <li key={todo} className="list-group-item">
-        <TodoListItem {...todo} />
+      <li key={todo.id} className="list-group-item">
+        <TodoListItem onDelete={onDelete} onImportant={onImportant} {...todo} />
       </li>
     );
   });
